@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Festival Ticketnummer Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #b7f0b0;
+            text-align: center;
+        }
+        h1 {
+            color: #533806;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #f1960d;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #f1960d;
+        }
+        #ticket-number {
+            font-size: 24px;
+            margin: 20px 0;
+            color: #e00c0c;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Willkommen zum Gaming Festival!</h1>
+    <p>Ziehe deine individuelle Ticketnummer.</p>
+
+    <button id="generate-number">Ticketnummer ziehen</button>
+    <p id="ticket-number"></p>
+
+    <script>
+        const generatedNumbers = []; // Array zum Speichern der generierten Ticketnummern
+
+        // Funktion zum Generieren einer Ticketnummer
+        document.getElementById('generate-number').addEventListener('click', function() {
+            let ticketNumber;
+            
+            // Generiere eine neue Ticketnummer und prüfe auf Eindeutigkeit
+            do {
+                ticketNumber = Math.floor(1 + Math.random() * 20); // Zufällige Ticketnummer
+            } while (generatedNumbers.includes(ticketNumber)); // Überprüfe, ob die Nummer bereits existiert
+
+            // Füge die neue Ticketnummer zum Array hinzu
+            generatedNumbers.push(ticketNumber);
+
+            // Zeige die Ticketnummer an
+            document.getElementById('ticket-number').innerText = `Deine Ticketnummer: ${ticketNumber}`;
+        });
+    </script>
+<p> Um nun zu deinem Invitation Ticket zu gelangen,schreibe dem Discord Mod deine gezogene Nummer. <br>
+    Anschließend erhältst du in Kürze dein Invitation Ticket.
+    <br> Um dann fortzufahren, scanne den QR-Code auf dem Ticket und gebe deinen Invitation Code auf der Website ein.
+<br>
+<br>
+    Viel Spaß beim Gaming Festival!
+    <br>
+    <br>
+    <img src="Monke Pixel.png" alt="PopoHub" height="250px" width="250px"> 
+</p>
+</body>
+</html>
